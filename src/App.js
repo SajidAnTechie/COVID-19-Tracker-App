@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Card from "./Components/Card/Card";
+import Home from "./Components/Home/Home";
+import * as api from "./Api/Api";
+import Search from "./Utilis/search";
+import Logo from "./Components/Logo/Logo";
+import Country from "./Components/Countrydata/Country";
+import { Switch, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import classes from "./App.module.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+export default class App extends Component {
+  state = {
+    data: {},
+  };
+  async componentDidMount() {
+    const fetchdata = await api.fetchdata();
+    this.setState({ data: fetchdata });
+  }
+
+  render() {
+    return (
+      <div className={classes.container}>
+        <Logo />
+        <Card data={this.state.data} />
+        <Search />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/country/:countryname" component={Country} />
+        </Switch>
+      </div>
+    );
+  }
 }
-
-export default App;
