@@ -12,23 +12,6 @@ class Home extends Component {
     this.setState({ data: fetchdata });
   }
   render() {
-    // console.log(this.state.data);
-    // let filterdata = this.state.data.map((filter) => {
-    //   return this.state.country !== ""
-    //     ? filter.countryRegion === this.state.country
-    //     : filter;
-    // });
-    // let searchfilter = filterdata.map((fetch, index) => (
-    //   <tr key={index}>
-    //     <td>{fetch.countryRegion}</td>
-    //     <td>{fetch.active}</td>
-    //     <td>{fetch.confirmed}</td>
-    //     <td>{fetch.recovered}</td>
-    //     <td>{fetch.deaths}</td>
-    //   </tr>
-    // ));
-    // let search = searchfilter[0] ? searchfilter : null;
-    // console.log(filterdata);
     let filterByConfirmed = !this.state.data[0] ? (
       <tr>
         <td>Loading...</td>
@@ -38,20 +21,12 @@ class Home extends Component {
         <tr key={index}>
           <td>
             <ReactCountryFlag countryCode={fetch.iso2} svg title={fetch.iso2} />
-            {fetch.countryRegion}
+            {fetch.combinedKey}
           </td>
-          <td style={{ color: "#ee9c31", fontWeight: "bold" }}>
-            {fetch.active}
-          </td>
-          <td style={{ color: "#7f7fff", fontWeight: "bold" }}>
-            {fetch.confirmed}
-          </td>
-          <td style={{ color: "#7fff7f", fontWeight: "bold" }}>
-            {fetch.recovered}
-          </td>
-          <td style={{ color: "#ff7f7f", fontWeight: "bold" }}>
-            {fetch.deaths}
-          </td>
+          <td>{fetch.active}</td>
+          <td>{fetch.confirmed}</td>
+          <td>{fetch.recovered}</td>
+          <td>{fetch.deaths}</td>
         </tr>
       ))
     );

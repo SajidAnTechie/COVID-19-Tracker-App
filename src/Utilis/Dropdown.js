@@ -6,7 +6,7 @@ const dropdown = () => {
   return (
     <div>
       <Dropdown as={ButtonGroup}>
-        <Button variant="light" size="sm">
+        <Button type="button" variant="light" size="sm">
           Show Chart
         </Button>
 
@@ -14,7 +14,6 @@ const dropdown = () => {
           id="dropdown-split-basic"
           size="sm"
           variant="light"
-          // variant="outline-info"
           title="Drop large"
         />
 

@@ -25,12 +25,15 @@
 }
 .content .box:nth-child(1) .counter {
   color: rgba(0, 0, 255, 0.5);
+  font-weight: 700;
 }
 .content .box:nth-child(2) .counter {
   color: rgba(0, 255, 0, 0.5);
+  font-weight: 700;
 }
-.content .box:nth-child(3) {
+.content .box:nth-child(3) .counter {
   color: rgba(255, 0, 0, 0.5);
+  font-weight: 700;
 }
 @media (max-width: 500px) {
   .content {

@@ -1,5 +1,6 @@
 {
   "name": "covid19-tracker",
+  "homepage": "http://covid19sajid.ml/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

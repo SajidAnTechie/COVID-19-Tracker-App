@@ -14,8 +14,8 @@ export const filterByConfirmed = async () => {
       "https://covid19.mathdro.id/api/confirmed"
     );
     return data.map(
-      ({ countryRegion, confirmed, recovered, deaths, active, iso2 }) => ({
-        countryRegion: countryRegion,
+      ({ combinedKey, confirmed, recovered, deaths, active, iso2 }) => ({
+        combinedKey: combinedKey,
         confirmed: confirmed,
         recovered: recovered,
         deaths: deaths,

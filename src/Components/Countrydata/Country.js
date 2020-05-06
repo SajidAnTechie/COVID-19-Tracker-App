@@ -54,18 +54,10 @@ class Country extends Component {
               {fetch.countryRegion}
             </td>
           )}
-          <td style={{ color: "#ee9c31", fontWeight: "bold" }}>
-            {fetch.active}
-          </td>
-          <td style={{ color: "#7f7fff", fontWeight: "bold" }}>
-            {fetch.confirmed}
-          </td>
-          <td style={{ color: "#7fff7f", fontWeight: "bold" }}>
-            {fetch.recovered}
-          </td>
-          <td style={{ color: "#ff7f7f", fontWeight: "bold" }}>
-            {fetch.deaths}
-          </td>
+          <td>{fetch.active}</td>
+          <td>{fetch.confirmed}</td>
+          <td>{fetch.recovered}</td>
+          <td>{fetch.deaths}</td>
         </tr>
       ))
     );
