@@ -8,4 +8,4 @@ const logo = () => {
     </div>
   );
 };
-export default logo;
+export default React.memo(logo);

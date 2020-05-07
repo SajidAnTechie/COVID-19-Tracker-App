@@ -3,7 +3,7 @@ import * as api from "../../Api/Api";
 import Table from "react-bootstrap/Table";
 import ReactCountryFlag from "react-country-flag";
 
-class Home extends Component {
+class Home extends React.PureComponent {
   state = {
     data: [],
   };
@@ -11,6 +11,7 @@ class Home extends Component {
     const fetchdata = await api.filterByConfirmed();
     this.setState({ data: fetchdata });
   }
+
   render() {
     let filterByConfirmed = !this.state.data[0] ? (
       <tr>
@@ -30,6 +31,7 @@ class Home extends Component {
         </tr>
       ))
     );
+    console.log("Home js");
     return (
       <Table responsive>
         <thead>

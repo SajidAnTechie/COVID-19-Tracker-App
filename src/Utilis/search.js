@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Form, InputGroup, FormControl, Button } from "react-bootstrap";
 
-class Search extends Component {
+class Search extends React.PureComponent {
   state = {
     country: "",
   };
+
   handlechange = (e) => {
     this.setState({ country: e.target.value });
   };

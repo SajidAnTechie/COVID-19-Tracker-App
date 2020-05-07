@@ -3,7 +3,7 @@ import Dropdown from "./Dropdown";
 import Search from "./search";
 import classes from "./style.module.css";
 
-export default function utilis() {
+function utilis() {
   return (
     <div className={classes.content}>
       <Search />
@@ -11,3 +11,5 @@ export default function utilis() {
     </div>
   );
 }
+
+export default React.memo(utilis);

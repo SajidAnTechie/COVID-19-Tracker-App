@@ -6,6 +6,7 @@ const Card = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
   if (!confirmed) {
     return <p>Loading...</p>;
   }
+
   return (
     <div className={classes.content}>
       <div className={classes.box}>

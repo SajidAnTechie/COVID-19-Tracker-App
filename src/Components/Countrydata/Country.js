@@ -1,31 +1,47 @@
 import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 import * as api from "../../Api/Api";
-import ReactCountryFlag from "react-country-flag";
 
 class Country extends Component {
   state = {
     data: [],
   };
+  _isMounted = false;
+
+  //PureComponenet Include ShouldcomponenentUpdate fun
+  //Pure Component Check for all props would change then Its render Dom.
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log("shouldComponentUpdate");
+
+  //   if (nextProps.countryname !== this.props.match.params.countryname) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
   componentDidMount() {
     this.filterdataBycountry();
   }
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.countryname !== this.props.match.params.countryname) {
-      return true;
-    } else {
-      return false;
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevProps.match.params.countryname !== this.props.match.params.countryname
+    ) {
+      this.filterdataBycountry();
     }
-  }
-  componentDidUpdate() {
-    this.filterdataBycountry();
   }
 
   filterdataBycountry = async () => {
+    this._isMounted = true;
     let countryName = this.props.match.params.countryname;
     const dataBycountry = await api.filterByCountry(countryName);
-    this.setState({ data: dataBycountry });
+    if (this._isMounted) {
+      this.setState({ data: dataBycountry });
+    }
   };
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
 
   render() {
     let filterByCountry = !this.state.data[0] ? (
@@ -37,22 +53,10 @@ class Country extends Component {
         <tr key={index}>
           {fetch.provinceState !== null ? (
             <td>
-              <ReactCountryFlag
-                countryCode={fetch.iso3}
-                svg
-                title={fetch.iso3}
-              />
               {fetch.countryRegion}/{fetch.provinceState}
             </td>
           ) : (
-            <td>
-              <ReactCountryFlag
-                countryCode={fetch.iso3}
-                svg
-                title={fetch.iso3}
-              />
-              {fetch.countryRegion}
-            </td>
+            <td>{fetch.countryRegion}</td>
           )}
           <td>{fetch.active}</td>
           <td>{fetch.confirmed}</td>
