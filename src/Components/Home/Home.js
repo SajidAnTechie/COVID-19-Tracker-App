@@ -3,7 +3,7 @@ import * as api from "../../Api/Api";
 import Table from "react-bootstrap/Table";
 import ReactCountryFlag from "react-country-flag";
 
-class Home extends React.PureComponent {
+class Home extends Component {
   state = {
     data: [],
   };

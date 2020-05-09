@@ -8,18 +8,6 @@ class Country extends Component {
   };
   _isMounted = false;
 
-  //PureComponenet Include ShouldcomponenentUpdate fun
-  //Pure Component Check for all props would change then Its render Dom.
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log("shouldComponentUpdate");
-
-  //   if (nextProps.countryname !== this.props.match.params.countryname) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
   componentDidMount() {
     this.filterdataBycountry();
   }
