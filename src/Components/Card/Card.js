@@ -22,6 +22,7 @@ const Card = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
         <h6>Number of confirmed cases of COVID-19</h6>
       </div>
       <div className={classes.box}>
+        {!confirmed && <p>Loading...</p>}
         <p>Recovered</p>
         <CountUp
           start={0}
@@ -34,6 +35,7 @@ const Card = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
         <h6>Number of recovered cases of COVID-19</h6>
       </div>
       <div className={classes.box}>
+        {!confirmed && <p>Loading...</p>}
         <p>Deaths</p>
         <CountUp
           start={0}

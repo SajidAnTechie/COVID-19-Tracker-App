@@ -17,6 +17,9 @@ const dropdown = () => {
       />
 
       <Dropdown.Menu>
+        {/* <Link className="dropdown-item" role="button" to="/chart">
+          Show Chart
+        </Link> */}
         <Dropdown.Item>
           <Link to="/chart">Show Chart</Link>
         </Dropdown.Item>
